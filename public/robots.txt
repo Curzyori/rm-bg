@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rm-bg.curzy.dev/sitemap.xml

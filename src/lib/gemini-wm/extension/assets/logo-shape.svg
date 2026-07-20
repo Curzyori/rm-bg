@@ -1,0 +1,41 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_87_53)">
+<mask id="mask0_87_53" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_87_53)">
+<path d="M12 0H0V24H12V0Z" fill="#111827"/>
+<mask id="mask1_87_53" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="0" width="13" height="24">
+<path d="M25 0H12V24H25V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_87_53)">
+<path d="M10 1L15 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 3L17 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 5L19 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 7L21 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 9L23 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 11L25 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 13L27 -4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 15L27 -2" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 17L27 0" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 19L27 2" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 21L27 4" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 23L27 6" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 25L27 8" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M10 27L27 10" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M12 27L27 12" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M14 27L27 14" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M16 27L27 16" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M18 27L27 18" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M20 27L27 20" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M22 27L27 22" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+<path d="M24 27L27 24" stroke="#111827" stroke-width="1.1" stroke-linecap="square"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_87_53">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

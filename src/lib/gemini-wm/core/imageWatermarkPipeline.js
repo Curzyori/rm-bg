@@ -1,0 +1,224 @@
+import { createInitialPipelineContext } from './pipelineInitialContext.js';
+import { collectInitialWatermarkCandidates } from './pipelineInitialSelection.js';
+import { runCandidateHypothesis } from './pipelineCandidateRunner.js';
+import {
+    createCandidateQualitySignals,
+    createCandidateSummaries,
+    rankCompletedCandidates
+} from './pipelineCandidateQuality.js';
+import { attachTopNSelectionMeta } from './pipelineMeta.js';
+import { createRejectedPipelineResult } from './pipelineResult.js';
+import { runAcceptedAlphaRepairPipeline } from './pipelineAcceptedExecutor.js';
+import { createAcceptedPipelineFinalResult } from './pipelineFinalization.js';
+
+function createSelectedCandidate(best) {
+    const hypothesis = best?.hypothesis ?? {};
+    const trial = hypothesis.trial ?? {};
+    const meta = best?.result?.meta ?? {};
+    return {
+        id: hypothesis.id ?? null,
+        family: hypothesis.family ?? null,
+        rank: best?.rank ?? 1,
+        source: meta.source ?? trial.source ?? null,
+        config: meta.config ?? hypothesis.config ?? trial.config ?? null,
+        position: meta.position ?? hypothesis.position ?? trial.position ?? null,
+        alphaProfile: hypothesis.alphaProfile ?? null,
+        polarity: hypothesis.polarity ?? null
+    };
+}
+
+function createRuntimeFailureResult({
+    createRejectedResult,
+    originalImageData,
+    debugTimings
+}) {
+    return createRejectedResult({
+        imageData: originalImageData,
+        debugTimings,
+        reason: 'candidate-execution-failed',
+        source: 'top-n-runtime-failure',
+        decisionTier: 'runtime-failure',
+        selectionDebug: null
+    });
+}
+
+function notifyCandidateCompleted({ options, candidate, debugTimings }) {
+    if (typeof options?.onCandidateCompleted !== 'function') return;
+
+    try {
+        options.onCandidateCompleted(candidate);
+    } catch {
+        if (debugTimings) {
+            debugTimings.candidateDiagnosticErrorCount =
+                (debugTimings.candidateDiagnosticErrorCount ?? 0) + 1;
+        }
+    }
+}
+
+export function runImageWatermarkPipeline({
+    imageData,
+    options = {},
+    nowMs,
+    cloneImageData,
+    alphaGainCandidates,
+    alphaPriorityGains,
+    createAcceptedPipelineDependencies,
+    cleanupConfig,
+    visualPostProcessingEnabled = false,
+    selectCandidate,
+    collectCandidates = collectInitialWatermarkCandidates,
+    runCandidate = runCandidateHypothesis,
+    measureCandidate = createCandidateQualitySignals,
+    rankCandidates = rankCompletedCandidates,
+    createSummaries = createCandidateSummaries,
+    attachSelectionMeta = attachTopNSelectionMeta,
+    runAcceptedPipeline = runAcceptedAlphaRepairPipeline,
+    createRejectedResult = createRejectedPipelineResult,
+    createAcceptedFinalResult = createAcceptedPipelineFinalResult
+} = {}) {
+    const totalStartedAt = nowMs();
+    const debugTimingsEnabled = options.debugTimings === true;
+    const debugTimings = debugTimingsEnabled ? {} : null;
+    const {
+        originalImageData,
+        alpha48,
+        alpha96,
+        alphaGainCandidates: resolvedAlphaGainCandidates,
+        alphaPriorityGains: resolvedAlphaPriorityGains,
+        allowAdaptiveSearch,
+        resolvedConfig,
+        position
+    } = createInitialPipelineContext({
+        imageData,
+        options,
+        cloneImageData,
+        alphaGainCandidates,
+        alphaPriorityGains
+    });
+
+    const discoveryStartedAt = nowMs();
+    const collection = collectCandidates({
+        originalImageData,
+        config: resolvedConfig,
+        position,
+        alpha48,
+        alpha96,
+        alpha96Variants: options.alpha96Variants ?? null,
+        getAlphaMap: options.getAlphaMap,
+        allowAdaptiveSearch,
+        alphaGainCandidates: resolvedAlphaGainCandidates,
+        alphaPriorityGains: resolvedAlphaPriorityGains,
+        selectCandidate
+    });
+    const hypotheses = Array.isArray(collection?.hypotheses)
+        ? collection.hypotheses.slice(0, 5)
+        : [];
+    if (debugTimingsEnabled) {
+        debugTimings.candidateDiscoveryMs = nowMs() - discoveryStartedAt;
+        debugTimings.initialSelectionMs = debugTimings.candidateDiscoveryMs;
+        debugTimings.generatedCandidateCount = hypotheses.length;
+        debugTimings.earlyExitReason = null;
+    }
+
+    const completed = [];
+    const failures = [];
+    const executionStartedAt = nowMs();
+    for (const hypothesis of hypotheses) {
+        try {
+            const completedCandidate = runCandidate({
+                hypothesis,
+                originalImageData,
+                resolvedConfig,
+                options,
+                nowMs,
+                alpha96,
+                debugTimingsEnabled,
+                visualPostProcessingEnabled,
+                cleanupConfig,
+                createAcceptedPipelineDependencies,
+                runAcceptedPipeline,
+                createAcceptedFinalResult
+            });
+            if (!completedCandidate?.result?.imageData) {
+                throw new Error(`Candidate ${hypothesis.id ?? 'unknown'} returned no pixels`);
+            }
+            const candidate = {
+                ...completedCandidate,
+                hypothesis,
+                qualitySignals: measureCandidate({
+                    originalImageData,
+                    candidateImageData: completedCandidate.result.imageData,
+                    hypothesis
+                })
+            };
+            completed.push(candidate);
+            notifyCandidateCompleted({ options, candidate, debugTimings });
+        } catch (error) {
+            failures.push({ hypothesis, error });
+        }
+    }
+    if (debugTimingsEnabled) {
+        debugTimings.candidateExecutionMs = nowMs() - executionStartedAt;
+        debugTimings.executedCandidateCount = hypotheses.length;
+        debugTimings.completedCandidateCount = completed.length;
+        debugTimings.failedCandidateCount = failures.length;
+    }
+
+    if (completed.length === 0) {
+        if (debugTimingsEnabled) {
+            debugTimings.candidateRankingMs = 0;
+            debugTimings.totalMs = nowMs() - totalStartedAt;
+        }
+        return createRuntimeFailureResult({
+            createRejectedResult,
+            originalImageData,
+            debugTimings
+        });
+    }
+
+    const rankingStartedAt = nowMs();
+    const ranked = rankCandidates(completed);
+    const best = ranked[0];
+    if (!best?.result?.imageData) {
+        failures.push({
+            hypothesis: null,
+            error: new Error('Candidate ranking returned no valid result')
+        });
+        if (debugTimingsEnabled) {
+            debugTimings.candidateRankingMs = nowMs() - rankingStartedAt;
+            debugTimings.failedCandidateCount = failures.length;
+            debugTimings.totalMs = nowMs() - totalStartedAt;
+        }
+        return createRuntimeFailureResult({
+            createRejectedResult,
+            originalImageData,
+            debugTimings
+        });
+    }
+
+    const candidateSummaries = createSummaries(ranked, failures);
+    const meta = attachSelectionMeta(best.result.meta, {
+        qualityStatus: best.qualitySignals?.qualityStatus,
+        selectionConfidence: best.selectionConfidence,
+        selectedCandidate: createSelectedCandidate(best),
+        qualitySignals: best.qualitySignals,
+        candidateSummaries
+    });
+    if (debugTimingsEnabled) {
+        debugTimings.candidateRankingMs = nowMs() - rankingStartedAt;
+        debugTimings.totalMs = nowMs() - totalStartedAt;
+    }
+
+    const combinedDebugTimings = debugTimingsEnabled
+        ? {
+            ...(best.result.debugTimings ?? {}),
+            ...debugTimings
+        }
+        : best.result.debugTimings;
+
+    return {
+        ...best.result,
+        meta,
+        debugTimings: combinedDebugTimings
+    };
+}

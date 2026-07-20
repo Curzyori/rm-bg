@@ -1,0 +1,19 @@
+{
+  "name": "rm-bg-watermark",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@imgly/background-removal": "^1.5.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "playwright": "^1.61.1",
+    "vite": "^8.1.5"
+  }
+}

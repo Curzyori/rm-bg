@@ -1,0 +1,31 @@
+# logs
+logs
+*.log
+npm-debug.log*
+
+# dependency directories
+node_modules/
+
+# production
+dist/
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# planning / local sample
+.sample
+PLAN.md
+SUMMARY.md
+TASK.md

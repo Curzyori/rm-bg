@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "description": "Human-maintained expectations for fixed-core Gemini watermark sample benchmarks.",
+  "samples": {
+    "1-1.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "1-4.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "1-8.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.3, "max": 0.6 },
+      "tags": ["catalog-large-margin", "ultra-weak-alpha", "extreme-aspect"]
+    },
+    "16-9.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    },
+    "2-3.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 0.6 },
+      "tags": ["catalog-large-margin", "conservative-texture-override"]
+    },
+    "20260520-1.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 32, "marginBottom": 32 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-small-margin"]
+    },
+    "20260520-3.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 96, "marginRight": 192, "marginBottom": 192 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["confirmed-new-margin", "legacy-alpha-map"]
+    },
+    "20260520-5.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 96, "marginRight": 64, "marginBottom": 64 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["legacy-standard"]
+    },
+    "20260607.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    },
+    "20260607-2.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "20260608-2.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "20260608-3.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "20260608-4.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "20260608-5.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "20260608-6.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "allowWeakResidual": true,
+      "tags": ["catalog-large-margin", "weak-residual-allowed"]
+    },
+    "20260608-7.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "20260613.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 42, "marginRight": 82, "marginBottom": 82 },
+      "expectedAlphaGain": { "min": 0.4, "max": 0.6 },
+      "tags": ["near-official-projected-large-margin"]
+    },
+    "20260616.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 96, "marginRight": 64, "marginBottom": 64 },
+      "expectedAlphaGain": { "min": 1, "max": 1 },
+      "allowWeakResidual": true,
+      "tags": ["canonical-96", "conservative-residual-allowed"]
+    },
+    "20260617.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 96, "marginRight": 64, "marginBottom": 64 },
+      "expectedAlphaGain": { "min": 1, "max": 1 },
+      "tags": ["canonical-96", "moderate-signal-standard-alpha"]
+    },
+    "21-9.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    },
+    "3-2.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    },
+    "3-4.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    },
+    "4-1.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["catalog-large-margin"]
+    },
+    "4-3.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    },
+    "4-5.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 32, "marginBottom": 32 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-small-margin"]
+    },
+    "5-4.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 32, "marginBottom": 32 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-small-margin"]
+    },
+    "8-1.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 0.6 },
+      "tags": ["catalog-large-margin", "conservative-texture-override", "extreme-aspect"]
+    },
+    "9-16.png": {
+      "shouldProcess": true,
+      "expectedAnchor": { "logoSize": 48, "marginRight": 96, "marginBottom": 96 },
+      "expectedAlphaGain": { "min": 0.5, "max": 1 },
+      "tags": ["current-large-margin"]
+    }
+  }
+}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gemini Watermark Remover</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup" aria-label="Gemini Watermark Remover">
+      <header class="brand">
+        <span class="logo-wrap" aria-hidden="true">
+          <img src="assets/logo-shape.svg" alt="">
+        </span>
+        <span class="brand-copy">
+          <span class="brand-name">Gemini Watermark Remover</span>
+          <span class="brand-note">Remove Gemini image watermarks automatically</span>
+        </span>
+      </header>
+
+      <section class="setting-group" aria-labelledby="enable-label">
+        <span class="feature-icon feature-icon-toggle" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="4" y="7" width="16" height="10" rx="5"></rect>
+            <circle cx="9" cy="12" r="2.4"></circle>
+          </svg>
+        </span>
+        <div class="setting-text">
+          <div id="enable-label" class="setting-title">Enable on Gemini</div>
+          <div class="setting-note" id="enable-note">Turn off if Gemini becomes slow or behaves unexpectedly</div>
+        </div>
+        <label class="switch" aria-label="Enable on Gemini">
+          <input id="enable-toggle" type="checkbox" checked>
+          <span class="switch-track" aria-hidden="true"></span>
+        </label>
+      </section>
+
+      <nav class="quick-links" aria-label="Related links">
+        <a
+          class="link-row primary-link"
+          href="https://geminiwatermarkremover.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="feature-icon feature-icon-site" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M7.5 18.5H7a4 4 0 0 1-.7-7.94 5.7 5.7 0 0 1 10.82-1.48A4.75 4.75 0 0 1 17.8 18.5h-1.3"></path>
+              <path d="M12 18.5V11"></path>
+              <path d="m8.8 14.2 3.2-3.2 3.2 3.2"></path>
+            </svg>
+          </span>
+          <span class="link-copy">
+            <span class="link-title">Online Gemini watermark remover</span>
+            <span class="link-note">Best for batch processing files</span>
+          </span>
+          <span class="chevron" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <path d="m6 3 5 5-5 5"></path>
+            </svg>
+          </span>
+        </a>
+        <a
+          class="link-row"
+          href="https://geminiwatermarkremover.io/video"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="feature-icon feature-icon-video" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+              <polygon points="10,8.5 16,12 10,15.5" fill="currentColor" stroke="none"></polygon>
+            </svg>
+          </span>
+          <span class="link-copy">
+            <span class="link-title">Remove Gemini video watermark</span>
+            <span class="link-note">Remove watermarks from AI-generated videos</span>
+          </span>
+          <span class="chevron" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <path d="m6 3 5 5-5 5"></path>
+            </svg>
+          </span>
+        </a>
+        <a
+          class="link-row"
+          href="https://pilio.ai/image-watermark-remover"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="feature-icon feature-icon-ai" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 3.5 14.6 8 19 9.6 14.6 11.2 13 15.5 11.4 11.2 7 9.6 11.4 8 13 3.5Z"></path>
+              <path d="M6.5 13.5 7.4 16 10 16.9 7.4 17.8 6.5 20.5 5.6 17.8 3 16.9 5.6 16 6.5 13.5Z"></path>
+            </svg>
+          </span>
+          <span class="link-copy">
+            <span class="link-title">Remove any image watermark</span>
+            <span class="link-note">Advanced AI model for complex watermarks</span>
+          </span>
+          <span class="chevron" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <path d="m6 3 5 5-5 5"></path>
+            </svg>
+          </span>
+        </a>
+      </nav>
+
+      <footer class="footer">
+        <a
+          class="feedback-link"
+          href="https://github.com/GargantuaX/gemini-watermark-remover/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="assets/github.svg" alt="" aria-hidden="true">
+          <span>Report an issue on GitHub</span>
+          <span class="chevron footer-chevron" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <path d="m6 3 5 5-5 5"></path>
+            </svg>
+          </span>
+        </a>
+        <span id="extension-version" class="version-label" aria-label="Extension version"></span>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
