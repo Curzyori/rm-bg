@@ -124,6 +124,8 @@ If you find this project useful, please consider giving it a ⭐ Star or 🍴 Fo
 
 MIT - see <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a>.
 
+Note: `@imgly/background-removal` dependency is AGPL-3.0 licensed. See <a href="https://github.com/imgly/background-removal-js">imgly/background-removal-js</a>.
+
 <p align="center">
   <sub>Built with passion as the 20th project of the 50 Projects Challenge by **@Curzyori**</sub>
 </p>

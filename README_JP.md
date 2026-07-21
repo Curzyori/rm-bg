@@ -124,6 +124,8 @@ npm run preview
 
 MIT - <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a> を参照。
 
+注：`@imgly/background-removal` 依存関係は AGPL-3.0 ライセンスです。詳細は <a href="https://github.com/imgly/background-removal-js">imgly/background-removal-js</a> をご覧ください。
+
 <p align="center">
   <sub>50 Projects Challenge の20番目のプロジェクトとして、**@Curzyori** が情熱を込めて開発</sub>
 </p>

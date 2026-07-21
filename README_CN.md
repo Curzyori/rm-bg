@@ -124,6 +124,8 @@ npm run preview
 
 MIT - 详见 <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a>。
 
+注意：`@imgly/background-removal` 依赖采用 AGPL-3.0 许可证。参见 <a href="https://github.com/imgly/background-removal-js">imgly/background-removal-js</a>。
+
 <p align="center">
   <sub>作为 50 Projects Challenge 的第 20 个项目，由 **@Curzyori** 用心打造</sub>
 </p>

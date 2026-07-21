@@ -124,6 +124,8 @@ Jika Anda merasa project ini bermanfaat, mohon pertimbangkan untuk memberikan тн
 
 MIT - lihat <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a>.
 
+Catatan: dependensi `@imgly/background-removal` dilisensikan AGPL-3.0. Lihat <a href="https://github.com/imgly/background-removal-js">imgly/background-removal-js</a>.
+
 <p align="center">
   <sub>Dibuat dengan dedikasi sebagai project ke-20 dari 50 Projects Challenge oleh **@Curzyori**</sub>
 </p>
