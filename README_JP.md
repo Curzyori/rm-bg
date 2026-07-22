@@ -24,6 +24,7 @@
   <a href="#why">Why</a> ·
   <a href="#key-features">Features</a> ·
   <a href="#tech-stack">Tech Stack</a> ·
+  <a href="#architecture">Architecture</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#preview">Preview</a> ·
@@ -71,13 +72,35 @@
 - カスタム canvas ベース透かしエンジン
 - バニラ JS、フレームワークなし
 
-## <a id="quick-start"></a>クイックスタート
+## <a id="architecture"></a>🏗️ アーキテクチャ
 
-オンラインで試す（推奨）：
+```
+rm-bg/
+├── index.html            # ランディング & 画像背景削除
+├── video.html            # 動画背景削除ページ
+├── src/
+│   ├── main.js           # 画像モジュール UI + エンジン初期化
+│   ├── video-main.js     # 動画モジュール UI + エンジン初期化
+│   └── lib/gemini-wm/    # 透かし除去エンジン
+│       ├── core/          # 検出パイプライン、処理
+│       ├── video/         # Veo AI 動画透かし検出
+│       ├── sdk/           # ブラウザ & Node SDK
+│       └── workers/       # バックグラウンド Web Worker
+├── public/
+│   ├── logo.png
+│   └── models/           # ONNX ノイズ除去モデル (FDCNN)
+├── images/               # README スクリーンショット
+├── vite.config.js
+└── package.json
+```
 
-<p align="center"><a href="https://rm-bg.curzy.dev/">rm-bg.curzy.dev</a></p>
+## <a id="quick-start"></a>🚀 クイックスタート
 
-またはローカルで実行：
+ブラウザで直接開く：
+
+<p align="center"><a href="https://rm-bg.curzy.dev/"><strong>🌐 rm-bg.curzy.dev</strong></a></p>
+
+## <a id="installation"></a>📦 インストール
 
 ```bash
 git clone https://github.com/Curzyori/rm-bg.git
@@ -85,22 +108,6 @@ cd rm-bg
 npm install
 npm run dev
 ```
-
-その後、表示された localhost URL を開きます。
-
-## <a id="installation"></a>インストール
-
-ソースからビルド（Node 18+）：
-
-```bash
-git clone https://github.com/Curzyori/rm-bg.git
-cd rm-bg
-npm install
-npm run build
-npm run preview
-```
-
-出力は静的 `dist/` フォルダで、任意の静的ホスティングにデプロイ可能（Vercel 設定付属）。
 
 ## <a id="preview"></a>プレビュー
 

@@ -24,6 +24,7 @@
   <a href="#why">Why</a> ·
   <a href="#key-features">Features</a> ·
   <a href="#tech-stack">Tech Stack</a> ·
+  <a href="#architecture">Architecture</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#preview">Preview</a> ·
@@ -71,13 +72,35 @@ Hapus background gambar dan hilangkan watermark Gemini / NotebookLM secara lokal
 - Watermark engine berbasis canvas custom
 - Vanilla JS, tanpa framework
 
-## <a id="quick-start"></a>Quick Start
+## <a id="architecture"></a>🏗️ Arsitektur
 
-Coba langsung (recommended):
+```
+rm-bg/
+├── index.html            # Landing & hapus background gambar
+├── video.html            # Halaman hapus background video
+├── src/
+│   ├── main.js           # UI modul gambar + inisialisasi engine
+│   ├── video-main.js     # UI modul video + inisialisasi engine
+│   └── lib/gemini-wm/    # Engine watermark removal
+│       ├── core/          # Pipeline deteksi, processing
+│       ├── video/         # Deteksi watermark video Veo AI
+│       ├── sdk/           # SDK Browser & Node
+│       └── workers/       # Web workers background
+├── public/
+│   ├── logo.png
+│   └── models/           # Model ONNX denoising (FDCNN)
+├── images/               # Screenshot README
+├── vite.config.js
+└── package.json
+```
 
-<p align="center"><a href="https://rm-bg.curzy.dev/">rm-bg.curzy.dev</a></p>
+## <a id="quick-start"></a>🚀 Quick Start
 
-Atau jalankan lokal:
+Buka aplikasi langsung di browser:
+
+<p align="center"><a href="https://rm-bg.curzy.dev/"><strong>🌐 rm-bg.curzy.dev</strong></a></p>
+
+## <a id="installation"></a>📦 Instalasi
 
 ```bash
 git clone https://github.com/Curzyori/rm-bg.git
@@ -85,22 +108,6 @@ cd rm-bg
 npm install
 npm run dev
 ```
-
-Lalu buka URL localhost yang tercetak.
-
-## <a id="installation"></a>Instalasi
-
-Build dari source (Node 18+):
-
-```bash
-git clone https://github.com/Curzyori/rm-bg.git
-cd rm-bg
-npm install
-npm run build
-npm run preview
-```
-
-Output berupa folder statis `dist/` yang bisa di-deploy ke host statis mana pun (config Vercel sudah disertakan).
 
 ## <a id="preview"></a>Preview
 

@@ -24,6 +24,7 @@
   <a href="#why">Why</a> ·
   <a href="#key-features">Features</a> ·
   <a href="#tech-stack">Tech Stack</a> ·
+  <a href="#architecture">Architecture</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#preview">Preview</a> ·
@@ -71,13 +72,35 @@ Remove image background and strip Gemini / NotebookLM watermarks locally in your
 - Custom canvas-based watermark engine
 - Vanilla JS, zero framework
 
-## <a id="quick-start"></a>Quick Start
+## <a id="architecture"></a>🏗️ Architecture
 
-Try it live (recommended):
+```
+rm-bg/
+├── index.html            # Landing & image BG removal
+├── video.html            # Video BG removal page
+├── src/
+│   ├── main.js           # Image module UI + engine init
+│   ├── video-main.js     # Video module UI + engine init
+│   └── lib/gemini-wm/    # Watermark removal engine
+│       ├── core/          # Detection pipeline, processing
+│       ├── video/         # Veo AI video watermark detection
+│       ├── sdk/           # Browser & Node SDK
+│       └── workers/       # Background web workers
+├── public/
+│   ├── logo.png
+│   └── models/           # ONNX denoising models (FDCNN)
+├── images/               # README screenshots
+├── vite.config.js
+└── package.json
+```
 
-<p align="center"><a href="https://rm-bg.curzy.dev/">rm-bg.curzy.dev</a></p>
+## <a id="quick-start"></a>🚀 Quick Start
 
-Or run locally:
+Open the app directly in your browser:
+
+<p align="center"><a href="https://rm-bg.curzy.dev/"><strong>🌐 rm-bg.curzy.dev</strong></a></p>
+
+## <a id="installation"></a>📦 Installation
 
 ```bash
 git clone https://github.com/Curzyori/rm-bg.git
@@ -85,22 +108,6 @@ cd rm-bg
 npm install
 npm run dev
 ```
-
-Then open the printed localhost URL.
-
-## <a id="installation"></a>Installation
-
-Build from source (Node 18+):
-
-```bash
-git clone https://github.com/Curzyori/rm-bg.git
-cd rm-bg
-npm install
-npm run build
-npm run preview
-```
-
-Output is a static `dist/` folder deployable to any static host (Vercel config included).
 
 ## <a id="preview"></a>Preview
 

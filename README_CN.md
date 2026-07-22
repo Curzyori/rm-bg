@@ -24,6 +24,7 @@
   <a href="#why">Why</a> ·
   <a href="#key-features">Features</a> ·
   <a href="#tech-stack">Tech Stack</a> ·
+  <a href="#architecture">Architecture</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#preview">Preview</a> ·
@@ -71,13 +72,35 @@
 - 基于 canvas 的自研水印引擎
 - 原生 JS，无框架
 
-## <a id="quick-start"></a>快速开始
+## <a id="architecture"></a>🏗️ 架构
 
-在线试用（推荐）：
+```
+rm-bg/
+├── index.html            # 首页 & 图片背景去除
+├── video.html            # 视频背景去除页面
+├── src/
+│   ├── main.js           # 图片模块 UI + 引擎初始化
+│   ├── video-main.js     # 视频模块 UI + 引擎初始化
+│   └── lib/gemini-wm/    # 水印去除引擎
+│       ├── core/          # 检测管道、处理
+│       ├── video/         # Veo AI 视频水印检测
+│       ├── sdk/           # 浏览器 & Node SDK
+│       └── workers/       # 后台 Web Worker
+├── public/
+│   ├── logo.png
+│   └── models/           # ONNX 去噪模型 (FDCNN)
+├── images/               # README 截图
+├── vite.config.js
+└── package.json
+```
 
-<p align="center"><a href="https://rm-bg.curzy.dev/">rm-bg.curzy.dev</a></p>
+## <a id="quick-start"></a>🚀 快速开始
 
-或本地运行：
+直接在浏览器中打开：
+
+<p align="center"><a href="https://rm-bg.curzy.dev/"><strong>🌐 rm-bg.curzy.dev</strong></a></p>
+
+## <a id="installation"></a>📦 安装
 
 ```bash
 git clone https://github.com/Curzyori/rm-bg.git
@@ -85,22 +108,6 @@ cd rm-bg
 npm install
 npm run dev
 ```
-
-然后打开终端中显示的 localhost 地址。
-
-## <a id="installation"></a>安装
-
-从源码构建（Node 18+）：
-
-```bash
-git clone https://github.com/Curzyori/rm-bg.git
-cd rm-bg
-npm install
-npm run build
-npm run preview
-```
-
-输出为静态 `dist/` 文件夹，可部署到任意静态托管（已包含 Vercel 配置）。
 
 ## <a id="preview"></a>预览
 
