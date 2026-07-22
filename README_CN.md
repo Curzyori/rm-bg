@@ -116,6 +116,8 @@ npm run preview
 
 如果你觉得这个项目对你有帮助，请考虑给一个 ⭐ Star 或 🍴 Fork 以示支持，这能让我更有动力继续开发更多有趣的开源项目！每一个 Star 和 Fork 对开发者来说都无比珍贵。
 
+您的捐赠能让这个项目保持免费与开源。每一份贡献都至关重要，您的支持也将激励我未来继续开发更多有趣的开源项目。
+
 <a href="https://donate.curzy.dev/">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>

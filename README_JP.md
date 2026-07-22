@@ -116,6 +116,8 @@ npm run preview
 
 このプロジェクトが役に立った場合は、⭐ Star を付けるか 🍴 Fork することを検討してください。開発の励みになり、今後より魅力的なオープンソースプロジェクトを作成するモチベーションになります！1つのスターやフォークが開発者にとって非常に価値があります。
 
+ご寄付により、このプロジェクトを無料でオープンソースに維持できます。皆様のご支援が力になり、今後も魅力的なオープンソースプロジェクトを開発し続ける原動力となります。
+
 <a href="https://donate.curzy.dev/">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>

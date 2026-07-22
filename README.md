@@ -116,6 +116,8 @@ Output is a static `dist/` folder deployable to any static host (Vercel config i
 
 If you find this project useful, please consider giving it a ⭐ Star or 🍴 Forking it to show support and keep me motivated to build more exciting open-source projects! Every single star and fork means a lot.
 
+Your donations keep my projects free and open source. Every contribution matters, and your support helps me continue building exciting open-source projects in the future.
+
 <a href="https://donate.curzy.dev/">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>
