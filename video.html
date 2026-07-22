@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Remove Background & Watermark - Free Online Tool | RM-BG</title>
-  <meta name="description" content="Remove photo backgrounds and strip Gemini / NotebookLM watermarks in your browser. Free, private, no upload required." />
-  <link rel="canonical" href="https://rm-bg.curzy.dev/" />
-  <meta property="og:title" content="RM-BG - Remove Background & Watermark" />
-  <meta property="og:description" content="Remove photo backgrounds and strip AI watermarks (Gemini, NotebookLM). 100% in-browser, free." />
+  <title>Remove Video Watermark - Free Online Tool | RM-BG</title>
+  <meta name="description" content="Remove video watermarks in your browser. Supports Gemini and Veo Text. Free, private, no upload required." />
+  <link rel="canonical" href="https://rm-bg.curzy.dev/video.html" />
+  <meta property="og:title" content="RM-BG - Remove Video Watermark" />
+  <meta property="og:description" content="Remove video watermarks (Gemini, Veo Text). 100% in-browser, free." />
   <meta property="og:image" content="https://rm-bg.curzy.dev/logo.png" />
-  <meta property="og:url" content="https://rm-bg.curzy.dev/" />
+  <meta property="og:url" content="https://rm-bg.curzy.dev/video.html" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="RM-BG - Remove Background & Watermark" />
-  <meta name="twitter:description" content="Remove photo backgrounds and strip AI watermarks. Free, in-browser." />
+  <meta name="twitter:title" content="RM-BG - Remove Video Watermark" />
+  <meta name="twitter:description" content="Remove video watermarks. Free, in-browser." />
   <meta name="twitter:image" content="https://rm-bg.curzy.dev/logo.png" />
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +82,40 @@
     h1 { font-size:28px; font-weight:700; letter-spacing:-0.5px; color:var(--ink); }
     .sub { color:var(--ink-muted); margin-bottom:2.5rem; text-align:center; font-size:15px; max-width:540px; line-height:1.5; }
 
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--canvas-soft);
+      padding: 0.25rem;
+      border-radius: 6px;
+      border: 1px solid var(--hairline);
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+    .nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .nav-tab:hover {
+      color: var(--ink);
+    }
+    .nav-tab.active {
+      background: var(--card-bg);
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
     /* Main Application Card */
     .app-card {
       width:100%;
@@ -144,39 +178,29 @@
     .progress-section.active { display:flex; }
     .bar-wrap { width:100%; height:6px; background:var(--hairline); border-radius:3px; overflow:hidden; display:none; }
     .bar { height:100%; width:0; background:var(--primary); transition:width .3s; }
-    .status { color:var(--ink-muted); min-height:1.2rem; text-align:center; font-size:13px; font-family:'JetBrains Mono', monospace; }
+    .status { color:var(--ink-muted); min-height:1.2rem; text-align:center; font-size:13px; font-family:'JetBrains Mono', monospace; line-height: 1.4; }
     .status.err { color:var(--err); }
 
-    /* Results Grid */
-    .results-wrap { width:100%; margin-top:1.5rem; }
-    .grid { gap:1.25rem; width:100%; }
-    .grid[style*="flex"] {
-      display:grid !important;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    /* Info Tooltip */
+    .info-container { position:relative; display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; }
+    .info-btn {
+      background:var(--surface-2); border:1px solid var(--border); color:var(--ink-muted);
+      border-radius:50%; width:18px; height:18px; font-size:11px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; padding:0;
+      transition:all .15s; line-height:1;
     }
-    figure { background:var(--card-bg); border:1px solid var(--hairline); border-radius:4px; padding:1rem; display:flex; flex-direction:column; gap:0.75rem; }
-    figcaption {
-      font-size:13px;
-      color:var(--ink-muted);
-      font-family:'JetBrains Mono', monospace;
-      text-align:left;
-      border-bottom:1px solid var(--hairline);
-      padding-bottom:0.5rem;
+    .info-btn:hover { background:var(--border-strong); color:var(--ink); }
+    .info-tooltip {
+      display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
+      background:var(--surface); border:1px solid var(--border-strong); border-radius:6px;
+      padding:10px 12px; width:260px; box-shadow:0 4px 12px var(--shadow); z-index:20;
+      font-size:12px; color:var(--ink-muted); line-height:1.5; text-align:left; pointer-events:none;
     }
-    .img-box {
-      width:100%;
-      aspect-ratio:1.2;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--checker);
-      border-radius:2px;
-      overflow:hidden;
-      border:1px solid var(--hairline);
-    }
-    figure img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+    .info-tooltip p { margin:0 0 6px 0; }
+    .info-tooltip p:last-child { margin:0; }
+    .info-tooltip.show { display:block; }
 
-    /* Download Action Button */
+    /* Action buttons */
     .actions { display:flex; justify-content:center; margin-top:1.25rem; width:100%; }
     .dl {
       display:none;
@@ -195,12 +219,12 @@
       cursor:pointer;
       transition: opacity 0.15s;
     }
-    .dl[style*="inline-block"] {
+    .dl.active {
       display:inline-flex !important;
     }
     .dl:hover { opacity:.85; }
     .dl svg.download-icon { width:16px; height:16px; stroke-width:2.2; }
-    
+
     /* Footer & A11y */
     *:focus-visible { outline: 1px solid var(--hairline-strong); outline-offset:2px; }
     .footer { width:100%; margin-top:4rem; padding-top:2rem; display:flex; flex-direction:column; align-items:center; gap:1rem; border-top:1px solid var(--hairline); }
@@ -210,13 +234,13 @@
     .footer-meta { display:flex; gap:1rem; font-size:12px; color:var(--ink-muted); font-family:'JetBrains Mono', monospace; }
     .footer-meta a { color:inherit; text-decoration:none; }
     .footer-meta a:hover { color:var(--ink); }
+    
     .lang-selector { display:flex; gap:.35rem; background:var(--canvas-soft); padding:.2rem; border-radius:4px; border:1px solid var(--hairline); }
     .lang-btn { background:none; border:none; color:var(--ink-muted); padding:.2rem .4rem; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
     .lang-btn svg.flag { width:22px; height:16px; display:block; border-radius:1px; }
     .lang-btn:hover { color:var(--ink); }
     .lang-btn.active { background:var(--primary); color:var(--on-primary); }
 
-    /* Theme Toggle */
     .theme-toggle { background:var(--canvas-soft); border:1px solid var(--hairline); color:var(--ink-muted); padding:.3rem .5rem; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
     .theme-toggle:hover { color:var(--ink); border-color:var(--hairline-strong); }
     .theme-toggle svg { width:14px; height:14px; }
@@ -225,41 +249,6 @@
     html:not([data-theme="light"]) .theme-toggle .sun { display:block; }
     html:not([data-theme="light"]) .theme-toggle .moon { display:none; }
 
-    /* Navigation Tabs */
-    .nav-tabs {
-      display: flex;
-      gap: 0.5rem;
-      background: var(--canvas-soft);
-      padding: 0.25rem;
-      border-radius: 6px;
-      border: 1px solid var(--hairline);
-      margin-bottom: 2rem;
-      width: fit-content;
-    }
-    .nav-tab {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 1rem;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink-muted);
-      text-decoration: none;
-      transition: all 0.15s ease;
-      border: 1px solid transparent;
-    }
-    .nav-tab:hover {
-      color: var(--ink);
-    }
-    .nav-tab.active {
-      background: var(--card-bg);
-      color: var(--ink);
-      border: 1px solid var(--hairline);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 640px) {
       body { padding: 2rem 1rem; }
       .gh-star { position: static; margin-bottom: 1.5rem; align-self: center; }
@@ -268,7 +257,6 @@
       .sub { font-size: 14px; margin-bottom: 1.5rem; }
       .app-card { padding: 1rem; gap: 0.75rem; }
       .drop { padding: 36px 1rem; }
-      .grid[style*="flex"] { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -282,73 +270,61 @@
       <img src="/logo.png" alt="Logo" class="logo-img" />
       <h1>RM-BG + Watermark</h1>
     </div>
-    <p class="sub" data-i18n="subtitle">Upload 1 foto → hapus background + watermark Gemini/NotebookLM. Semua di browser, gratis.</p>
+    <p class="sub" data-i18n="subtitle">Upload 1 video → hapus watermark Gemini/Veo Text. Semua di browser, gratis.</p>
 
     <nav class="nav-tabs" role="tablist" aria-label="Processing Mode">
-      <a href="/" class="nav-tab active" role="tab" aria-selected="true"><span>🖼</span> <span data-i18n="nav_image">Image</span></a>
-      <a href="/video.html" class="nav-tab" role="tab" aria-selected="false"><span>🎬</span> <span data-i18n="nav_video">Video</span></a>
+      <a href="/" class="nav-tab" role="tab" aria-selected="false"><span>🖼</span> <span data-i18n="nav_image">Image</span></a>
+      <a href="/video.html" class="nav-tab active" role="tab" aria-selected="true"><span>🎬</span> <span data-i18n="nav_video">Video</span></a>
     </nav>
 
     <main class="app-card">
-      <label class="drop" id="drop" tabindex="0" role="button" aria-label="Upload image">
+      <label class="drop" id="drop" tabindex="0" role="button" aria-label="Upload video">
         <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="17 8 12 3 7 8"/>
           <line x1="12" y1="3" x2="12" y2="15"/>
         </svg>
-        <div class="upload-text" data-i18n="upload_main">Klik atau drop gambar (PNG/JPG/WebP)</div>
-        <p data-i18n="upload_sub">Max ~20MB. Diproses lokal, file tidak diupload.</p>
-        <input type="file" id="file" accept="image/png,image/jpeg,image/webp" aria-hidden="true" tabindex="-1" />
+        <div class="upload-text" data-i18n="upload_video">Klik atau drop video (MP4/WebM)</div>
+        <p data-i18n="upload_video_sub">Max ~100MB. Diproses lokal, file tidak diupload.</p>
+        <input type="file" id="file" accept="video/mp4,video/webm,video/quicktime" aria-hidden="true" tabindex="-1" />
       </label>
 
       <div class="opts" role="group" aria-label="Processing options">
         <label class="opt">
-          <input type="checkbox" id="optBg" checked />
-          <span data-i18n="opt_bg">Remove Background</span>
+          <input type="checkbox" id="optGemini" checked />
+          <span data-i18n="opt_gemini_video">Remove Gemini Video Watermark</span>
         </label>
-        <label class="opt">
-          <input type="checkbox" id="optGemini" />
-          <span data-i18n="opt_gemini">Remove Gemini Watermark</span>
-        </label>
-        <label class="opt">
-          <input type="checkbox" id="optNotebook" />
-          <span data-i18n="opt_notebook">Remove NotebookLM Watermark</span>
+        <label class="opt" style="display:none"> <!-- Ditambahkan sebagai placeholder fallback, default disembunyikan jika text-veo otomatis mendeteksi -->
+          <input type="checkbox" id="optVeo" checked />
+          <span data-i18n="opt_veo_video">Remove Veo Text Watermark</span>
         </label>
       </div>
 
       <div class="progress-section" id="progressSection">
-        <div class="bar-wrap" id="barWrap"><div class="bar" id="bar"></div></div>
-        <div class="status" id="status" aria-live="polite"></div>
-      </div>
-    </main>
-
-    <div class="results-wrap">
-      <div class="grid" id="grid" style="display:none">
-        <figure>
-          <figcaption data-i18n="before_cap">Sebelum</figcaption>
-          <div class="img-box">
-            <img id="before" alt="before" />
+        <div class="bar-wrap" id="barWrap" style="display:block"><div class="bar" id="bar"></div></div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem">
+          <div class="status" id="status" aria-live="polite"></div>
+          <div class="info-container" id="infoContainer" style="display:none">
+            <button id="infoBtn" class="info-btn" aria-label="Processing Info">?</button>
+            <div id="infoTooltip" class="info-tooltip">
+              <p data-i18n="info_desc_1">Processing is done locally on your device using ONNX Runtime (WASM/WebGPU).</p>
+              <p data-i18n="info_desc_2">Depending on your CPU/GPU and video length, frames are processed one by one which might take some time.</p>
+            </div>
           </div>
-        </figure>
-        <figure>
-          <figcaption data-i18n="after_cap">Sesudah</figcaption>
-          <div class="img-box">
-            <img id="after" alt="after" />
-          </div>
-        </figure>
+        </div>
       </div>
 
       <div class="actions">
-        <a class="dl" id="download" download="cleaned.png" role="button" data-i18n="download">
+        <a class="dl" id="download" role="button" data-i18n="download_video">
           <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
-          <span>Download PNG</span>
+          <span>Download MP4</span>
         </a>
       </div>
-    </div>
+    </main>
 
     <footer class="footer">
       <div style="display:flex; gap:.5rem; align-items:center;">
@@ -405,6 +381,6 @@
     </footer>
   </div>
 
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/video-main.js"></script>
 </body>
 </html>

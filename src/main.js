@@ -35,7 +35,10 @@ const i18n = {
     opt_gemini: "Remove Gemini Watermark",
     opt_notebook: "Remove NotebookLM Watermark",
     meta_license: "MIT License",
-    meta_version: "Version 1.0.0"
+    meta_version: "Version 1.0.0",
+    license_url: "https://github.com/curzyori/rm-bg#license",
+    nav_image: "Image",
+    nav_video: "Video"
   },
   id: {
     subtitle: "Upload 1 foto → hapus background + watermark Gemini/NotebookLM. Semua di browser, gratis.",
@@ -59,7 +62,10 @@ const i18n = {
     opt_gemini: "Hapus Watermark Gemini",
     opt_notebook: "Hapus Watermark NotebookLM",
     meta_license: "Lisensi MIT",
-    meta_version: "Versi 1.0.0"
+    meta_version: "Versi 1.0.0",
+    license_url: "https://github.com/Curzyori/rm-bg/blob/main/README_ID.md#license",
+    nav_image: "Gambar",
+    nav_video: "Video"
   },
   zh: {
     subtitle: "上传1张照片 → 自动去除背景 + 移除双重水印 (Gemini/NotebookLM)。纯本地浏览器处理，完全免费。",
@@ -83,7 +89,10 @@ const i18n = {
     opt_gemini: "移除 Gemini 水印",
     opt_notebook: "移除 NotebookLM 水印",
     meta_license: "MIT 许可证",
-    meta_version: "版本 1.0.0"
+    meta_version: "版本 1.0.0",
+    license_url: "https://github.com/Curzyori/rm-bg/blob/main/README_CN.md#license",
+    nav_image: "图片",
+    nav_video: "视频"
   },
   ja: {
     subtitle: "写真を1枚アップロード → 背景消去 + 二重透かし (Gemini/NotebookLM) を一括クリア。すべてブラウザ内で完結、完全無料。",
@@ -107,16 +116,19 @@ const i18n = {
     opt_gemini: "Geminiの透かしを除去",
     opt_notebook: "NotebookLMの透かしを除去",
     meta_license: "MITライセンス",
-    meta_version: "バージョン 1.0.0"
+    meta_version: "バージョン 1.0.0",
+    license_url: "https://github.com/Curzyori/rm-bg/blob/main/README_JP.md#license",
+    nav_image: "画像",
+    nav_video: "動画"
   }
 };
 
-let currentLang = localStorage.getItem('lang') || 'en';
+let currentLang = localStorage.getItem('rm-bg-lang') || 'en';
 
 function setLanguage(lang) {
   if (!i18n[lang]) lang = 'en';
   currentLang = lang;
-  localStorage.setItem('lang', lang);
+  localStorage.setItem('rm-bg-lang', lang);
   document.documentElement.lang = lang;
 
   // Apply strings
@@ -131,6 +143,12 @@ function setLanguage(lang) {
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
+
+  // Update license link for current locale
+  const licenseLink = document.getElementById('licenseLink');
+  if (licenseLink && i18n[lang].license_url) {
+    licenseLink.href = i18n[lang].license_url;
+  }
 }
 
 function t(key) {

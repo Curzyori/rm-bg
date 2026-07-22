@@ -34,7 +34,7 @@ const ALLENK_FDNCNN_RUNTIME_PROFILES = Object.freeze([
 ]);
 
 const DEFAULT_ALLENK_FDNCNN_RUNTIME_PROFILE = ALLENK_FDNCNN_RUNTIME_PROFILES.find(
-    (profile) => profile.id === 'allenk-fdncnn-200'
+    (profile) => profile.id === 'allenk-fdncnn-104'
 ) || ALLENK_FDNCNN_RUNTIME_PROFILES[ALLENK_FDNCNN_RUNTIME_PROFILES.length - 1];
 const DEFAULT_ALLENK_FDNCNN_PADDING = 64;
 

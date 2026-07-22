@@ -1,4 +1,23 @@
-import * as wasmOrt from 'onnxruntime-web/wasm';
+// Ort loader: prefers global `ort` (loaded via script tag in html) over dynamic import.
+// Global ort avoids Vite dev dynamic import issue with onnxruntime-web WASM helpers.
+let _ort = null;
+async function _loadOrt() {
+    if (_ort) return _ort;
+    if (globalThis.ort && typeof globalThis.ort.InferenceSession?.create === 'function') {
+        _ort = globalThis.ort;
+        return _ort;
+    }
+    try {
+        // @vite-ignore
+        const mod = await import('onnxruntime-web/wasm');
+        _ort = mod.default || mod;
+        return _ort;
+    } catch {
+        throw new Error(
+            'ONNX Runtime (ort) not available. Load ort.all.min.js via <script> tag or install onnxruntime-web.'
+        );
+    }
+}
 
 import {
     buildAllenkFdncnnInput,
@@ -52,7 +71,7 @@ async function createAllenkFdncnnOnnxRuntime({
     if (executionProvider === 'webgpu' && !ort) {
         throw new Error('allenk FDnCNN WebGPU runtime requires an injected onnxruntime-web/webgpu module');
     }
-    const resolvedOrt = ort || wasmOrt;
+    const resolvedOrt = ort || await _loadOrt();
     const resolvedInputShape = normalizeShape(inputShape, [1, 4, 72, 72]);
     const resolvedOutputShape = normalizeShape(outputShape, [1, 3, resolvedInputShape[2], resolvedInputShape[3]]);
     if (resolvedOrt.env?.wasm) {

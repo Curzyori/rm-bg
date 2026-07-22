@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@imgly/background-removal": "^1.5.5"
+    "@imgly/background-removal": "^1.5.5",
+    "mediabunny": "^1.50.9",
+    "onnxruntime-web": "^1.21.0"
   },
   "devDependencies": {
     "esbuild": "^0.28.1",
