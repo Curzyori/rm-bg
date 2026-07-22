@@ -65,7 +65,7 @@ Remove image background and strip Gemini / NotebookLM watermarks locally in your
 | **Multi-Language UI** | ✅ | EN, ID, CN, JP with one-click selector |
 | **Dark/Light Theme** | ✅ | Persistent theme switcher |
 
-## <a id="tech-stack"></a>Tech Stack
+## <a id="tech-stack"></a>🛠️ Tech Stack
 
 - Vite 8 (rolldown)
 - `@imgly/background-removal` (ONNX WebGPU/WASM)
@@ -109,7 +109,7 @@ npm install
 npm run dev
 ```
 
-## <a id="preview"></a>Preview
+## <a id="preview"></a>🖼️ Preview
 
 <div align="center">
 
@@ -129,7 +129,7 @@ Your donations keep my projects free and open source. Every contribution matters
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>
 
-## <a id="license"></a>License
+## <a id="license"></a>⚖️ License
 
 MIT - see <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a>.
 

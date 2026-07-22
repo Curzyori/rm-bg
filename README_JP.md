@@ -65,7 +65,7 @@
 | **多言語 UI** | ✅ | ワンクリックで EN, ID, CN, JP を切り替え |
 | **ダーク/ライトテーマ** | ✅ | 保存可能なテーマ切り替えトグル |
 
-## <a id="tech-stack"></a>技術スタック
+## <a id="tech-stack"></a>🛠️ 技術スタック
 
 - Vite 8 (rolldown)
 - `@imgly/background-removal` (ONNX WebGPU/WASM)
@@ -109,7 +109,7 @@ npm install
 npm run dev
 ```
 
-## <a id="preview"></a>プレビュー
+## <a id="preview"></a>🖼️ プレビュー
 
 <div align="center">
 
@@ -129,7 +129,7 @@ npm run dev
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>
 
-## <a id="license"></a>ライセンス
+## <a id="license"></a>⚖️ ライセンス
 
 MIT - <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a> を参照。
 

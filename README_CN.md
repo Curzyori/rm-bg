@@ -65,7 +65,7 @@
 | **多语言界面** | ✅ | 支持 EN、ID、CN、JP 一键切换 |
 | **深色/浅色主题** | ✅ | 支持自动保存的主题切换 |
 
-## <a id="tech-stack"></a>技术栈
+## <a id="tech-stack"></a>🛠️ 技术栈
 
 - Vite 8 (rolldown)
 - `@imgly/background-removal` (ONNX WebGPU/WASM)
@@ -109,7 +109,7 @@ npm install
 npm run dev
 ```
 
-## <a id="preview"></a>预览
+## <a id="preview"></a>🖼️ 预览
 
 <div align="center">
 
@@ -129,7 +129,7 @@ npm run dev
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>
 
-## <a id="license"></a>许可证
+## <a id="license"></a>⚖️ 许可证
 
 MIT - 详见 <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a>。
 

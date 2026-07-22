@@ -65,7 +65,7 @@ Hapus background gambar dan hilangkan watermark Gemini / NotebookLM secara lokal
 | **UI Multi-Bahasa** | ✅ | EN, ID, CN, JP dengan satu klik selektor |
 | **Tema Dark/Light** | ✅ | Switcher tema yang tersimpan otomatis |
 
-## <a id="tech-stack"></a>Tech Stack
+## <a id="tech-stack"></a>🛠️ Tech Stack
 
 - Vite 8 (rolldown)
 - `@imgly/background-removal` (ONNX WebGPU/WASM)
@@ -109,7 +109,7 @@ npm install
 npm run dev
 ```
 
-## <a id="preview"></a>Preview
+## <a id="preview"></a>🖼️ Preview
 
 <div align="center">
 
@@ -129,7 +129,7 @@ Donasi Anda menjaga proyek ini tetap gratis dan open-source. Setiap kontribusi s
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200" />
 </a>
 
-## <a id="license"></a>Lisensi
+## <a id="license"></a>⚖️ Lisensi
 
 MIT - lihat <a href="https://github.com/Curzyori/rm-bg/blob/main/LICENSE">LICENSE</a>.
 
