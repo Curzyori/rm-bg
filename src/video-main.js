@@ -356,7 +356,7 @@ async function startProcessing(file) {
 
         state.processedUrl = URL.createObjectURL(result.blob);
         els.download.href = state.processedUrl;
-        els.download.download = `cleaned_${file.name.replace(/\.[^/.]+$/, "")}.mp4`;
+        els.download.download = `rm-bg_${file.name.replace(/\\.[^/.]+$/, "")}.mp4`;
         els.download.classList.add('active');
         
         setStatus(i18n[currentLang].done);

@@ -33,6 +33,7 @@
       --ok: #10b981;
       --err: #ef4444;
       --card-bg: #09090b;
+      --shadow: rgba(0,0,0,0.4);
     }
 
     [data-theme="light"] {
@@ -48,6 +49,7 @@
       --ok: #10b981;
       --err: #ef4444;
       --card-bg: #ffffff;
+      --shadow: rgba(0,0,0,0.08);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -184,15 +186,15 @@
     /* Info Tooltip */
     .info-container { position:relative; display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; }
     .info-btn {
-      background:var(--surface-2); border:1px solid var(--border); color:var(--ink-muted);
+      background:var(--canvas-soft); border:1px solid var(--hairline); color:var(--ink-muted);
       border-radius:50%; width:18px; height:18px; font-size:11px; cursor:pointer;
       display:flex; align-items:center; justify-content:center; padding:0;
       transition:all .15s; line-height:1;
     }
-    .info-btn:hover { background:var(--border-strong); color:var(--ink); }
+    .info-btn:hover { background:var(--hairline-strong); color:var(--ink); }
     .info-tooltip {
       display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
-      background:var(--surface); border:1px solid var(--border-strong); border-radius:6px;
+      background:var(--card-bg); border:1px solid var(--hairline-strong); border-radius:6px;
       padding:10px 12px; width:260px; box-shadow:0 4px 12px var(--shadow); z-index:20;
       font-size:12px; color:var(--ink-muted); line-height:1.5; text-align:left; pointer-events:none;
     }
