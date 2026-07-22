@@ -50,8 +50,9 @@ Hapus background gambar dan hilangkan watermark Gemini / NotebookLM secara lokal
 | ----------------------------- | ------------------------------------------------------------ |
 | ✅ **Hapus Background**       | Model ISNet berjalan lokal langsung di browser Anda |
 | ✅ **Watermark Gemini**       | Strip watermark AI menggunakan canvas extraction |
-| ✅ **Watermark NotebookLM**   | Dukungan terpisah untuk format ekspor gambar NotebookLM |
-| ✅ **100% Client-Side**       | Tanpa server, tanpa upload — privasi mutlak |
+|| ✅ **Watermark NotebookLM**   | Dukungan terpisah untuk format ekspor gambar NotebookLM |
+|| ✅ **Watermark Video**        | Hapus watermark teks Gemini & Veo dari video MP4/WebM |
+|| ✅ **100% Client-Side**       | Tanpa server, tanpa upload — privasi mutlak |
 | ✅ **Gratis & Tanpa Batas**   | Tanpa credit, tanpa akun, tanpa limit |
 
 ## <a id="key-features"></a>🎯 Fitur Utama
@@ -60,8 +61,9 @@ Hapus background gambar dan hilangkan watermark Gemini / NotebookLM secara lokal
 | :--- | :---: | :--- |
 | **Hapus Background** | ✅ | Potong background menggunakan model ISNet |
 | **Watermark Gemini** | ✅ | Hapus watermark SynthID dari ekspor Gemini |
-| **Watermark NotebookLM** | ✅ | Hapus watermark footer dari ekspor NotebookLM |
-| **100% Client-Side** | ✅ | Pemrosesan di dalam halaman, tidak butuh internet |
+|| **Watermark NotebookLM** | ✅ | Hapus watermark footer dari ekspor NotebookLM |
+|| **Watermark Video** | ✅ | Hapus watermark teks Gemini & Veo dari video MP4/WebM |
+|| **100% Client-Side** | ✅ | Pemrosesan di dalam halaman, tidak butuh internet |
 | **UI Multi-Bahasa** | ✅ | EN, ID, CN, JP dengan satu klik selektor |
 | **Tema Dark/Light** | ✅ | Switcher tema yang tersimpan otomatis |
 
