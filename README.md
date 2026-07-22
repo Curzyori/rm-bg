@@ -50,9 +50,9 @@ Remove image background and strip Gemini / NotebookLM watermarks locally in your
 | ----------------------------- | ------------------------------------------------------------ |
 | ✅ **Background Removal**    | On-device ISNet model runs locally in your browser |
 | ✅ **Gemini Watermark**       | Strips visible AI watermarks using canvas extraction |
-|| ✅ **NotebookLM Watermark**   | Separate support for NotebookLM image export format |
-|| ✅ **Video Watermark**        | Strip Gemini & Veo text watermarks from MP4/WebM videos |
-|| ✅ **100% Client-Side**       | Zero servers, zero uploads — absolute privacy |
+| ✅ **NotebookLM Watermark**   | Separate support for NotebookLM image export format |
+| ✅ **Video Watermark**        | Strip Gemini & Veo text watermarks from MP4/WebM videos |
+| ✅ **100% Client-Side**       | Zero servers, zero uploads — absolute privacy |
 | ✅ **Fully Free & Unlimited** | No credits, no accounts, no limits |
 
 ## <a id="key-features"></a>🎯 Key Features
@@ -61,9 +61,9 @@ Remove image background and strip Gemini / NotebookLM watermarks locally in your
 | :--- | :---: | :--- |
 | **Background Removal** | ✅ | Standard background cutout via ISNet model |
 | **Gemini Watermark** | ✅ | Strip SynthID watermark from Gemini exports |
-|| **NotebookLM Watermark** | ✅ | Strip footer watermark from NotebookLM exports |
-|| **Video Watermark** | ✅ | Strip Gemini & Veo text watermarks from MP4/WebM videos |
-|| **100% Client-Side** | ✅ | Processing happens in-page, no network required |
+| **NotebookLM Watermark** | ✅ | Strip footer watermark from NotebookLM exports |
+| **Video Watermark** | ✅ | Strip Gemini & Veo text watermarks from MP4/WebM videos |
+| **100% Client-Side** | ✅ | Processing happens in-page, no network required |
 | **Multi-Language UI** | ✅ | EN, ID, CN, JP with one-click selector |
 | **Dark/Light Theme** | ✅ | Persistent theme switcher |
 
